@@ -2,7 +2,7 @@ package api;
 
 public interface IAPIAccount {
 
-    void onRequestFail();
+    void onRequestFail(ICUError icuError, String message);
     void onTokenSuccess(Token token);
     void onDeviceSuccess(DeviceDetail deviceDetail);
 

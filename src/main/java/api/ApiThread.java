@@ -6,6 +6,10 @@ package api;
 public final class ApiThread extends Thread implements IAPIAccount {
 
 
+    public ApiThread(String baseUrl){this.baseUrl = baseUrl;}
+    public ApiThread(){}
+
+
     /**
      * The State Machine states
      */
@@ -15,6 +19,7 @@ public final class ApiThread extends Thread implements IAPIAccount {
 
     private String api_username = "";
     private String api_password = "";
+    private String baseUrl = "https://192.168.137.8:44345";
     private boolean _run = false;
     private boolean readySent = false;
     private boolean setupComplete = false;
@@ -26,6 +31,7 @@ public final class ApiThread extends Thread implements IAPIAccount {
     private Token token;
     private int tokenTick = 0;
     private static final int POLL_DELAY = 100;
+    private static final int CONNECT_DELAY_MS = 1000;
     private static final int TOKEN_REFRESH_TICK = (60*2*6*100);
 
 
@@ -53,6 +59,7 @@ public final class ApiThread extends Thread implements IAPIAccount {
     public void run(){
         super.run();
 
+        ApiFunctions.setBaseUrl(baseUrl);
         ApiFunctions.setApiAccountListener(this);
 
         _run = true;
@@ -68,43 +75,47 @@ public final class ApiThread extends Thread implements IAPIAccount {
             }
 
             switch(icuState){
-                case SM_CONNECT -> {
+                case SM_CONNECT:
+                    try {
+                        Thread.sleep(CONNECT_DELAY_MS);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     setupComplete = false;
                     readySent = false;
                     icuState = IcuState.SM_WAIT;
                     ApiFunctions.getToken(this.api_username,this.api_password);
-                }
-                case SM_WAIT -> {
+                    break;
+                case SM_WAIT:
                     // intentional empty - state is changed by callbacks
-                }
-
-                case SM_STATUS -> {
+                    break;
+                case SM_STATUS:
                     icuState = IcuState.SM_WAIT;
                     ApiFunctions.getStatus(token.access_token);
-                }
-                case SM_GET_DEVICE -> {
+                    break;
+                case SM_GET_DEVICE:
                     icuState = IcuState.SM_WAIT;
                     ApiFunctions.getDevice(token.access_token);
-                }
-                case SM_PURGE_FACES -> {
+                    break;
+                case SM_PURGE_FACES:
                     FaceDelete faceDelete = new FaceDelete();
                     faceDelete.uid = new String[1];
                     faceDelete.uid[0] = "all";
                     icuState = IcuState.SM_WAIT;
                     ApiFunctions.setDeleteFaces(token.access_token,faceDelete);
+                    break;
 
-                }
-                case SM_GET_SETTINGS -> {
+                case SM_GET_SETTINGS:
                     icuState = IcuState.SM_WAIT;
                     ApiFunctions.getSettings(token.access_token);
-                }
-                case SM_REFRESH_TOKEN -> {
+                    break;
+                case SM_REFRESH_TOKEN:
                     icuState = IcuState.SM_WAIT;
                     ApiFunctions.getToken(this.api_username,this.api_password);
-                }
-                default -> {
+                    break;
+                default:
                     System.out.println("illegal state: " + icuState);
-                }
+
             }
 
             try {
@@ -129,9 +140,10 @@ public final class ApiThread extends Thread implements IAPIAccount {
      * The IAPIAccount listener events
      */
     @Override
-    public void onRequestFail() {
+    public void onRequestFail(ICUError icuError, String message) {
         deviceEventListener.onNewICUEvent(ICUEvent.DISCONNECTED,null);
         icuState = IcuState.SM_CONNECT;
+        deviceEventListener.onICUError(icuError, message);
     }
 
     @Override

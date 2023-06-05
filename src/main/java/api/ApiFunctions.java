@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import javax.net.ssl.*;
 import java.io.IOException;
+import java.net.URL;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
@@ -22,18 +23,14 @@ import java.util.concurrent.TimeUnit;
  */
 public final class ApiFunctions {
 
-    private static final String BASE_URL = "https://192.168.137.8:44345";
+    private static String BASE_URL = "";
     private static IAPIAccount iApiAccountListener;
     /**
      * Only one instance for this Retrofit
      */
-    private static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(getUnsafeOkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
+    private static Retrofit retrofit = null;
 
-    private static ApiService apiService = retrofit.create(ApiService.class);
+    private static ApiService apiService = null;
 
 
     /**
@@ -43,12 +40,29 @@ public final class ApiFunctions {
         iApiAccountListener = listener;
     }
 
+    public static void setBaseUrl(String baseUrl){
+        BASE_URL = baseUrl;
+    }
+
+
 
     /**
      * ICU API request to obtain the authorization token from
      * the ICU device
      */
     public static void getToken(String username, String password){
+
+        if(retrofit == null){
+            retrofit = new Retrofit.Builder()
+                                    .baseUrl(BASE_URL)
+                                    .client(getUnsafeOkHttpClient())
+                                    .addConverterFactory(GsonConverterFactory.create())
+                                    .build();
+
+            apiService = retrofit.create(ApiService.class);
+        }
+
+
 
         HashMap<String,String> params = new HashMap<>();
         params.put("grant_type","password");
@@ -66,13 +80,13 @@ public final class ApiFunctions {
 
                 } else {
                     // Handle error response
-                    iApiAccountListener.onRequestFail();
+                    iApiAccountListener.onRequestFail(ICUError.HTTP_RESPONSE,"http response fail " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<Token> call, Throwable throwable) {
-                iApiAccountListener.onRequestFail();
+                iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.getMessage());
             }
         });
 
@@ -85,6 +99,17 @@ public final class ApiFunctions {
      */
     public static void getDevice(String token){
 
+        if(retrofit == null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(getUnsafeOkHttpClient())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            apiService = retrofit.create(ApiService.class);
+        }
+
+
         Call<DeviceDetail> call = apiService.getDevice("Bearer " + token);
         call.enqueue(new Callback<DeviceDetail>() {
             @Override
@@ -93,12 +118,12 @@ public final class ApiFunctions {
                 DeviceDetail apiResponse = response.body();
                 iApiAccountListener.onDeviceSuccess(apiResponse);
                 } else {
-                    iApiAccountListener.onRequestFail();
+                    iApiAccountListener.onRequestFail(ICUError.HTTP_RESPONSE,"http response fail " + response.code());
                 }
             }
             @Override
             public void onFailure(Call<DeviceDetail> call, Throwable throwable) {
-                iApiAccountListener.onRequestFail();
+                iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.getMessage());
             }
         });
 
@@ -114,6 +139,17 @@ public final class ApiFunctions {
      */
     public static void setDeleteFaces(String token, FaceDelete faceDelete){
 
+        if(retrofit == null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(getUnsafeOkHttpClient())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            apiService = retrofit.create(ApiService.class);
+        }
+
+
         Call<Void> call = apiService.setDeleteFaces("Bearer " + token,faceDelete);
         call.enqueue(new Callback<Void>() {
             @Override
@@ -121,13 +157,13 @@ public final class ApiFunctions {
                 if (response.isSuccessful()) {
                     iApiAccountListener.onDeleteSuccess();
                 } else {
-                    iApiAccountListener.onRequestFail();
+                    iApiAccountListener.onRequestFail(ICUError.HTTP_RESPONSE,"http response fail " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable throwable) {
-                iApiAccountListener.onRequestFail();
+                iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION,throwable.getMessage());
             }
         });
 
@@ -141,6 +177,17 @@ public final class ApiFunctions {
      */
     public static void getSettings(String token){
 
+        if(retrofit == null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(getUnsafeOkHttpClient())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            apiService = retrofit.create(ApiService.class);
+        }
+
+
         Call<SettingsResponse> call = apiService.getSettings("Bearer " + token);
         call.enqueue(new Callback<SettingsResponse>() {
             @Override
@@ -149,13 +196,13 @@ public final class ApiFunctions {
                     SettingsResponse apiResponse = response.body();
                     iApiAccountListener.onSettingsSuccess(apiResponse);
                 } else {
-                    iApiAccountListener.onRequestFail();
+                    iApiAccountListener.onRequestFail(ICUError.HTTP_RESPONSE,"http response fail " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<SettingsResponse> call, Throwable throwable) {
-                iApiAccountListener.onRequestFail();
+                iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION,throwable.getMessage());
             }
         });
 
@@ -168,6 +215,17 @@ public final class ApiFunctions {
      */
     public static void getStatus(String token){
 
+        if(retrofit == null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(getUnsafeOkHttpClient())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            apiService = retrofit.create(ApiService.class);
+        }
+
+
         Call<StatusResponse> call = apiService.getStatus("Bearer " + token);
         call.enqueue(new Callback<StatusResponse>() {
             @Override
@@ -176,13 +234,13 @@ public final class ApiFunctions {
                     StatusResponse apiResponse = response.body();
                     iApiAccountListener.onStatusSuccess(apiResponse);
                 } else {
-                    iApiAccountListener.onRequestFail();
+                    iApiAccountListener.onRequestFail(ICUError.HTTP_RESPONSE,"http response fail " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<StatusResponse> call, Throwable throwable) {
-                iApiAccountListener.onRequestFail();
+                iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION,throwable.getMessage());
             }
         });
 
