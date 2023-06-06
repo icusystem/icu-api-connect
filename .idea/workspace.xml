@@ -4,30 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="before jv merge">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/IAPIAccount.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICUError.java" afterDir="false" />
+    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="first iteration after merge">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/IcuListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiFunctions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Camera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Detection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/DeviceCamera.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/DeviceDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/FaceDelete.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/FaceDetect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/FaceSessionData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/IAPIAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ICUError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ICUEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/IDeviceEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/SettingsResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/StatusResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/ICUConnect.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +19,9 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -99,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685971341321</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first iteration after merge">
+      <created>1686035869442</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686035869442</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="before jv merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="before jv merge" />
+    <MESSAGE value="first iteration after merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="first iteration after merge" />
   </component>
 </project>
