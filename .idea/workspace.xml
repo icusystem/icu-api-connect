@@ -4,16 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/ICUError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="before jv merge">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/IAPIAccount.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICUError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/IAPIAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/IAPIAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/IDeviceEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/IDeviceEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/ICUConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/ICUConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiFunctions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/Camera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/Detection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/DeviceCamera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/DeviceDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/FaceDelete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/FaceDetect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/FaceSessionData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/IAPIAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ICUError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ICUEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/IDeviceEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/SettingsResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/StatusResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/Token.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/ICUConnect.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +37,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -71,6 +92,14 @@
       <option name="presentableId" value="Default" />
       <updated>1679043563826</updated>
     </task>
+    <task id="LOCAL-00001" summary="before jv merge">
+      <created>1685971341321</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685971341321</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,15 +113,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/api/ApiThread.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="before jv merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="before jv merge" />
   </component>
 </project>
