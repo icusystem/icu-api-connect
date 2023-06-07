@@ -4,10 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="first iteration after merge">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/IcuListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/Main.java" afterDir="false" />
+    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="First commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/APIThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/Connect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/IcuListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/LocalAPIListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ApiFunctions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ApiService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/Camera.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/CameraSettings.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/DeviceCamera.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/DeviceDetail.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/DeviceSettings.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollError.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollRequest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/FaceDelete.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/FaceSessionData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/IAPIAccount.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICUDevice.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICUError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICURunMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ModeSet.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/Session Response.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SessionAgeResult.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SessionScanResult.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SetSession.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SettingsRequest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/StatusResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/StreamSetFaceBox.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/Token.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/UpdateFaceData.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
