@@ -1,14 +1,9 @@
 package io.github.icusystem.icu_connect;
 
-import io.github.icusystem.icu_connect.api_icu.DeviceDetail;
-import io.github.icusystem.icu_connect.api_icu.EnrollError;
-import io.github.icusystem.icu_connect.api_icu.EnrollResponse;
-import io.github.icusystem.icu_connect.api_icu.FaceDetect;
-import io.github.icusystem.icu_connect.api_icu.FaceSessionData;
-import io.github.icusystem.icu_connect.api_icu.ICUDevice;
-import io.github.icusystem.icu_connect.api_icu.SessionAgeResult;
-import io.github.icusystem.icu_connect.api_icu.SessionScanResult;
-import io.github.icusystem.icu_connect.api_icu.StatusResponse;
+
+
+import io.github.icusystem.icu_connect.api_icu.*;
+
 
 import java.util.List;
 

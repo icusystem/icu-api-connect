@@ -4,13 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="first working level">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="remove redundant test files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/DeviceDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/EnrollError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/FaceDelete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/FaceDetect.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/IAPIAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ModeCamera.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/UpdateData.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/UpdateFaceData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/IcuListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ApiFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ApiFunctions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/APIThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/APIThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/Connect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/LocalAPIListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/LocalAPIListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/DeviceDetail.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/EnrollError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/CameraRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/FaceDelete.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/Detection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/IAPIAccount.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ModeSet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ModeSet.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/Session Response.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/SessionResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/SettingsRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/SettingsRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/StatusResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/StatusResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/Token.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/UpdateFaceData.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +40,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -45,6 +64,11 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="release" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="2N8R8LpOyPOSl6MGNq9sqHyspeQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -52,20 +76,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.47126436"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.Kotlin.scripting&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn dependency:resolve -Dclassifier=javadoc" />
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -89,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686035869442</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="remove redundant test files">
+      <created>1686222460514</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686222460514</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +143,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="before jv merge" />
     <MESSAGE value="first iteration after merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="first iteration after merge" />
+    <MESSAGE value="remove redundant test files" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove redundant test files" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
