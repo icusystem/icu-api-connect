@@ -4,40 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="First commit">
+    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="first working level">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/APIThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/Connect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/IcuListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/LocalAPIListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ApiFunctions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ApiService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/Camera.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/CameraSettings.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/DeviceCamera.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/DeviceDetail.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/DeviceSettings.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollError.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollRequest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/EnrollResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/FaceDelete.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/FaceSessionData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/IAPIAccount.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICUDevice.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICUError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ICURunMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/ModeSet.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/Session Response.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SessionAgeResult.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SessionScanResult.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SetSession.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/SettingsRequest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/StatusResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/StreamSetFaceBox.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/Token.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itl/icu_connect/api_icu/UpdateFaceData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/IcuListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ApiFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ApiFunctions.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,20 +52,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.47126436&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47126436"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

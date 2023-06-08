@@ -71,11 +71,11 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener?.onToken(apiResponse)
+                            iApiAccountListener.onToken(apiResponse)
                         }
                     } else {
                         // Handle error response
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -83,7 +83,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Token?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
         }
@@ -101,10 +101,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onStatus(apiResponse)
+                            iApiAccountListener.onStatus(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -112,7 +112,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<StatusResponse?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
 
@@ -134,10 +134,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onFaceIDSuccess(apiResponse)
+                            iApiAccountListener.onFaceIDSuccess(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -145,7 +145,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<EnrollResponse>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
         }
@@ -161,9 +161,9 @@ class ApiFunctions {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        iApiAccountListener!!.onFacesUpdated()
+                        iApiAccountListener.onFacesUpdated()
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -171,7 +171,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Void>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
 
             })
@@ -188,10 +188,10 @@ class ApiFunctions {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        iApiAccountListener!!.onDeleteFaces()
+                        iApiAccountListener.onDeleteFaces()
 
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -199,7 +199,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Void>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
 
             })
@@ -219,10 +219,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onDeviceDetail(apiResponse)
+                            iApiAccountListener.onDeviceDetail(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -230,7 +230,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<DeviceDetail?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
 
@@ -250,10 +250,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onGetSettings(apiResponse)
+                            iApiAccountListener.onGetSettings(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -261,7 +261,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<DeviceSettings?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
 
@@ -278,9 +278,9 @@ class ApiFunctions {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        iApiAccountListener!!.onSetSettings()
+                        iApiAccountListener.onSetSettings()
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -288,7 +288,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Void>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
 
             })
@@ -305,9 +305,9 @@ class ApiFunctions {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        iApiAccountListener!!.onSetSettings()
+                        iApiAccountListener.onSetSettings()
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -315,7 +315,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Void>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
 
             })
@@ -335,9 +335,9 @@ class ApiFunctions {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        iApiAccountListener!!.onSetSession()
+                        iApiAccountListener.onSetSession()
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -345,7 +345,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Void>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
 
             })
@@ -364,10 +364,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onGetSession(apiResponse)
+                            iApiAccountListener.onGetSession(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -375,7 +375,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<SessionResponse?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
 
@@ -395,10 +395,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onGetAgeResult(apiResponse)
+                            iApiAccountListener.onGetAgeResult(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -406,7 +406,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<SessionAgeResult?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
 
@@ -424,10 +424,10 @@ class ApiFunctions {
                     if (response.isSuccessful) {
                         val apiResponse = response.body()
                         if (apiResponse != null) {
-                            iApiAccountListener!!.onGetScanResult(apiResponse)
+                            iApiAccountListener.onGetScanResult(apiResponse)
                         }
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -435,7 +435,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<SessionScanResult?>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
             })
 
@@ -452,10 +452,10 @@ class ApiFunctions {
             call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        iApiAccountListener!!.onSetStreamSettings()
+                        iApiAccountListener.onSetStreamSettings()
 
                     } else {
-                        iApiAccountListener!!.onRequestFail(
+                        iApiAccountListener.onRequestFail(
                             ICUError.HTTP_RESPONSE,
                             "http response fail " + response.code()
                         )
@@ -463,7 +463,7 @@ class ApiFunctions {
                 }
 
                 override fun onFailure(call: Call<Void>, throwable: Throwable) {
-                    iApiAccountListener!!.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
+                    iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.message.toString())
                 }
 
             })
