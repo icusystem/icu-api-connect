@@ -4,108 +4,62 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="first working level">
+    <list default="true" id="3d9a1a29-3043-44a5-a33a-ce36ebb03ea1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/IcuListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ApiFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/icusystem/icu_connect/api_icu/ApiFunctions.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Kotlin Class" />
-        <option value="Kotlin Data Class" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2N8R8LpOyPOSl6MGNq9sqHyspeQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2R6uijPw85EkKqBdvcMXFb9m1L4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.47126436"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="dokka:dokka jar:jar@dokka-jar" />
+      <command value="mvn dokka:dokka jar:jar@dokka-jar" />
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b108dc79-0385-4aac-bb5e-6b64dd1ced38" name="Changes" comment="" />
-      <created>1679043563826</created>
+      <changelist id="3d9a1a29-3043-44a5-a33a-ce36ebb03ea1" name="Changes" comment="" />
+      <created>1686582982899</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679043563826</updated>
+      <updated>1686582982899</updated>
     </task>
-    <task id="LOCAL-00001" summary="before jv merge">
-      <created>1685971341321</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1685971341321</updated>
-    </task>
-    <task id="LOCAL-00002" summary="first iteration after merge">
-      <created>1686035869442</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1686035869442</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="before jv merge" />
-    <MESSAGE value="first iteration after merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="first iteration after merge" />
   </component>
 </project>
