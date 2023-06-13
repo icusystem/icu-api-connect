@@ -4,8 +4,8 @@ package io.github.icusystem.icu_connect;
 import io.github.icusystem.icu_connect.api_icu.*;
 import org.jetbrains.annotations.NotNull;
 
-import javax.naming.Context;
 import java.util.HashMap;
+
 
 public class APIThread extends Thread implements IAPIAccount {
 
@@ -209,11 +209,11 @@ public class APIThread extends Thread implements IAPIAccount {
                     break;
                 case SM_GET_DEVICE:
                     icuLastState = icuState;
-                    ApiFunctions.Companion.getDevice(apiToken.getAccess_token());
+                    ApiFunctions.Companion.getDevice(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SETTINGS:
-                    ApiFunctions.Companion.getSettings(apiToken.getAccess_token());
+                    ApiFunctions.Companion.getSettings(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SETTINGS:
@@ -227,11 +227,11 @@ public class APIThread extends Thread implements IAPIAccount {
                     mode2.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
                     mode2.getCameras().get(0).setView_mode(this.requestCamera.getView_mode());
                     mode2.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
-                    ApiFunctions.Companion.setSettings(apiToken.getAccess_token(),mode2);
+                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode2);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_STATUS:
-                    ApiFunctions.Companion.getStatus(apiToken.getAccess_token());
+                    ApiFunctions.Companion.getStatus(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_AGE_ONLY:
@@ -244,7 +244,7 @@ public class APIThread extends Thread implements IAPIAccount {
                     mode.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
                     mode.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
                     mode.getCameras().get(0).setView_mode("Biggest");
-                    ApiFunctions.Companion.setSettings(apiToken.getAccess_token(),mode);
+                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_FACE_REC:
@@ -257,7 +257,7 @@ public class APIThread extends Thread implements IAPIAccount {
                     mode3.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
                     mode3.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
                     mode3.getCameras().get(0).setView_mode("Biggest");
-                    ApiFunctions.Companion.setSettings(apiToken.getAccess_token(),mode3);
+                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode3);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_AGE_ID_VERIFY:
@@ -270,39 +270,39 @@ public class APIThread extends Thread implements IAPIAccount {
                     mode1.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
                     mode1.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
                     mode1.getCameras().get(0).setView_mode("OCR");
-                    ApiFunctions.Companion.setSettings(apiToken.getAccess_token(),mode1);
+                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode1);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SESSION_IDLE:
-                    ApiFunctions.Companion.setSession(apiToken.getAccess_token(), "idle");
+                    ApiFunctions.Companion.setSession(apiToken.access_token, "idle");
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SESSION_STATUS:
-                    ApiFunctions.Companion.getSession(apiToken.getAccess_token());
+                    ApiFunctions.Companion.getSession(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SESSION_FACE_CAPTURE:
-                    ApiFunctions.Companion.setSession(apiToken.getAccess_token(), "face_capture");
+                    ApiFunctions.Companion.setSession(apiToken.access_token, "face_capture");
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SESSION_AGE_RESULT:
-                    ApiFunctions.Companion.getSessionAgeResult(apiToken.getAccess_token());
+                    ApiFunctions.Companion.getSessionAgeResult(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SESSION_CARD_SCAN:
-                    ApiFunctions.Companion.setSession(apiToken.getAccess_token(), "id_scan");
+                    ApiFunctions.Companion.setSession(apiToken.access_token, "id_scan");
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SESSION_SCAN_RESULT:
-                    ApiFunctions.Companion.getSessionScanResult(apiToken.getAccess_token());
+                    ApiFunctions.Companion.getSessionScanResult(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_STREAM_SETTINGS:
-                    ApiFunctions.Companion.setStreamFaceBoxDisplay(apiToken.getAccess_token(),faceBoxDisplayValue);
+                    ApiFunctions.Companion.setStreamFaceBoxDisplay(apiToken.access_token,faceBoxDisplayValue);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_ENROLL_IMAGE:
-                    ApiFunctions.Companion.enrollImage(apiToken.getAccess_token(),enrollImage);
+                    ApiFunctions.Companion.enrollImage(apiToken.access_token,enrollImage);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_PURGE_FACES:
@@ -310,17 +310,17 @@ public class APIThread extends Thread implements IAPIAccount {
                     String [] del = new String[1];
                     del[0] = "all";
                     FaceDelete faceDelete = new FaceDelete(del);
-                    ApiFunctions.Companion.deleteFaces(apiToken.getAccess_token(),faceDelete);
+                    ApiFunctions.Companion.deleteFaces(apiToken.access_token,faceDelete);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_FACES_TO_UPDATE:
                     icuLastState = icuState;
-                    ApiFunctions.Companion.updateFaceData(apiToken.getAccess_token(),this.updateFaceData);
+                    ApiFunctions.Companion.updateFaceData(apiToken.access_token,this.updateFaceData);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_FACES_TO_DELETE:
                     icuLastState = icuState;
-                    ApiFunctions.Companion.deleteFaces(apiToken.getAccess_token(),this.deleteFaceData);
+                    ApiFunctions.Companion.deleteFaces(apiToken.access_token,this.deleteFaceData);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
             }
