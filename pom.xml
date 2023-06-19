@@ -6,16 +6,18 @@
 
     <groupId>io.github.icusystem</groupId>
     <artifactId>icu-api-connect</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
 
 
     <name>icu-connect</name>
     <description>A library to enable API communications to an ICU device</description>
+    <inceptionYear>2023</inceptionYear>
     <url>https://github.com/icusystem/icu-api-connect</url>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
     <developers>
@@ -30,6 +32,7 @@
         <connection>scm:git:git://github.com/icusystem/icu-api-connect.git</connection>
         <developerConnection>scm:git:ssh://github.com/icusystem/icu-api-connect.git</developerConnection>
         <url>https://github.com/icusystem/icu-api-connect/tree/master</url>
+        <tag>HEAD</tag>
     </scm>
 
 
@@ -44,7 +47,7 @@
 
     <profiles>
         <profile>
-            <id>release</id>
+            <id>publication</id>
             <build>
                 <plugins>
                     <plugin>
@@ -59,6 +62,11 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>3.0.0</version>
                     </plugin>
                     <plugin>
                         <groupId>org.jetbrains.dokka</groupId>
