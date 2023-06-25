@@ -85,6 +85,7 @@ public class APIThread extends Thread implements IAPIAccount {
     private String apiUserName;
     private String apiPassword;
 
+
     public APIThread(CameraSettings cameraSettings, String username, String password) {
 
         this.icuThreadListeners = new HashMap<>();
@@ -93,6 +94,17 @@ public class APIThread extends Thread implements IAPIAccount {
         this.apiUserName = username;
         this.apiPassword = password;
     }
+
+    public APIThread(CameraSettings cameraSettings, String username, String password, Boolean showDebug) {
+
+        this.icuThreadListeners = new HashMap<>();
+        this.icuDevice = new ICUDevice();
+        this.cameraSettings = cameraSettings;
+        this.apiUserName = username;
+        this.apiPassword = password;
+        ApiFunctions.setShowDebug(showDebug);
+    }
+
 
     public void setLocalAPIListener(String tag, LocalAPIListener listener){
         this.icuThreadListeners.put(tag,listener);
@@ -127,7 +139,7 @@ public class APIThread extends Thread implements IAPIAccount {
     public void run() {
         super.run();
 
-        ApiFunctions.Companion.setOnAPIAccountListener(this);
+        ApiFunctions.setOnAPIAccountListener(this);
 
         _isrun = true;
 
@@ -199,110 +211,110 @@ public class APIThread extends Thread implements IAPIAccount {
                 case SM_CONNECT:
                     readySent = false;
                     validSettings = false;
-                    ApiFunctions.Companion.getToken(this.apiUserName,this.apiPassword);
+                    ApiFunctions.getToken(this.apiUserName,this.apiPassword);
                     icuSavedState =  ICU_SM.SM_GET_DEVICE;
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_REFRESH_TOKEN:
-                    ApiFunctions.Companion.getToken(this.apiUserName,this.apiPassword);
+                    ApiFunctions.getToken(this.apiUserName,this.apiPassword);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_DEVICE:
                     icuLastState = icuState;
-                    ApiFunctions.Companion.getDevice(apiToken.access_token);
+                    ApiFunctions.getDevice(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SETTINGS:
-                    ApiFunctions.Companion.getSettings(apiToken.access_token);
+                    ApiFunctions.getSettings(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SETTINGS:
                     // update with preference settings
                     icuLastState = icuState;
                     ModeSet mode2 = new ModeSet();
-                    mode2.getCameras().get(0).setId_Index(0);
-                    mode2.getCameras().get(0).setFace_rec_en(this.requestCamera.getFace_rec_en());
-                    mode2.getCameras().get(0).setCamera_distance(this.cameraSettings.getCamera_distance());
-                    mode2.getCameras().get(0).setSpoof_level(this.cameraSettings.getSpoof_level());
-                    mode2.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
-                    mode2.getCameras().get(0).setView_mode(this.requestCamera.getView_mode());
-                    mode2.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
-                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode2);
+                    mode2.Cameras.get(0).Id_Index = 0;
+                    mode2.Cameras.get(0).Face_rec_en = this.requestCamera.Face_rec_en;
+                    mode2.Cameras.get(0).Camera_distance = this.cameraSettings.Camera_distance;
+                    mode2.Cameras.get(0).Spoof_level = this.cameraSettings.Spoof_level;
+                    mode2.Cameras.get(0).Pose_filter = this.cameraSettings.Pose_filter;
+                    mode2.Cameras.get(0).View_mode  = this.requestCamera.View_mode;
+                    mode2.Cameras.get(0).Rotation =  this.cameraSettings.Rotation;
+                    ApiFunctions.setSettings(apiToken.access_token,mode2);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_STATUS:
-                    ApiFunctions.Companion.getStatus(apiToken.access_token);
+                    ApiFunctions.getStatus(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_AGE_ONLY:
                     icuLastState = icuState;
                     ModeSet mode = new ModeSet();
-                    mode.getCameras().get(0).setId_Index(0);
-                    mode.getCameras().get(0).setFace_rec_en(false);
-                    mode.getCameras().get(0).setCamera_distance(this.cameraSettings.getCamera_distance());
-                    mode.getCameras().get(0).setSpoof_level(this.cameraSettings.getSpoof_level());
-                    mode.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
-                    mode.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
-                    mode.getCameras().get(0).setView_mode("Biggest");
-                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode);
+                    mode.Cameras.get(0).Id_Index = 0;
+                    mode.Cameras.get(0).Face_rec_en = false;
+                    mode.Cameras.get(0).Camera_distance = this.cameraSettings.Camera_distance;
+                    mode.Cameras.get(0).Spoof_level = this.cameraSettings.Spoof_level;
+                    mode.Cameras.get(0).Pose_filter = this.cameraSettings.Pose_filter;
+                    mode.Cameras.get(0).Rotation =  this.cameraSettings.Rotation;
+                    mode.Cameras.get(0).View_mode = "Biggest";
+                    ApiFunctions.setSettings(apiToken.access_token,mode);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_FACE_REC:
                     icuLastState = icuState;
                     ModeSet mode3 = new ModeSet();
-                    mode3.getCameras().get(0).setId_Index(0);
-                    mode3.getCameras().get(0).setFace_rec_en(true);
-                    mode3.getCameras().get(0).setCamera_distance(this.cameraSettings.getCamera_distance());
-                    mode3.getCameras().get(0).setSpoof_level(this.cameraSettings.getSpoof_level());
-                    mode3.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
-                    mode3.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
-                    mode3.getCameras().get(0).setView_mode("Biggest");
-                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode3);
+                    mode3.Cameras.get(0).Id_Index = 0;
+                    mode3.Cameras.get(0).Face_rec_en = true;
+                    mode3.Cameras.get(0).Camera_distance = this.cameraSettings.Camera_distance;
+                    mode3.Cameras.get(0).Spoof_level = this.cameraSettings.Spoof_level;
+                    mode3.Cameras.get(0).Pose_filter = this.cameraSettings.Pose_filter;
+                    mode3.Cameras.get(0).Rotation =  this.cameraSettings.Rotation;
+                    mode3.Cameras.get(0).View_mode = "Biggest";
+                    ApiFunctions.setSettings(apiToken.access_token,mode3);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_AGE_ID_VERIFY:
                     icuLastState = icuState;
                     ModeSet mode1 = new ModeSet();
-                    mode1.getCameras().get(0).setId_Index(0);
-                    mode1.getCameras().get(0).setFace_rec_en(true);
-                    mode1.getCameras().get(0).setCamera_distance(this.cameraSettings.getCamera_distance());
-                    mode1.getCameras().get(0).setSpoof_level(this.cameraSettings.getSpoof_level());
-                    mode1.getCameras().get(0).setPose_filter(this.cameraSettings.getPose_filter());
-                    mode1.getCameras().get(0).setRotation(this.cameraSettings.getRotation());
-                    mode1.getCameras().get(0).setView_mode("OCR");
-                    ApiFunctions.Companion.setSettings(apiToken.access_token,mode1);
+                    mode1.Cameras.get(0).Id_Index = 0;
+                    mode1.Cameras.get(0).Face_rec_en = true;
+                    mode1.Cameras.get(0).Camera_distance = this.cameraSettings.Camera_distance;
+                    mode1.Cameras.get(0).Spoof_level = this.cameraSettings.Spoof_level;
+                    mode1.Cameras.get(0).Pose_filter = this.cameraSettings.Pose_filter;
+                    mode1.Cameras.get(0).Rotation =  this.cameraSettings.Rotation;
+                    mode1.Cameras.get(0).View_mode = "OCR";
+                    ApiFunctions.setSettings(apiToken.access_token,mode1);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SESSION_IDLE:
-                    ApiFunctions.Companion.setSession(apiToken.access_token, "idle");
+                    ApiFunctions.setSession(apiToken.access_token, "idle");
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SESSION_STATUS:
-                    ApiFunctions.Companion.getSession(apiToken.access_token);
+                    ApiFunctions.getSession(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SESSION_FACE_CAPTURE:
-                    ApiFunctions.Companion.setSession(apiToken.access_token, "face_capture");
+                    ApiFunctions.setSession(apiToken.access_token, "face_capture");
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SESSION_AGE_RESULT:
-                    ApiFunctions.Companion.getSessionAgeResult(apiToken.access_token);
+                    ApiFunctions.getSessionAgeResult(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_SESSION_CARD_SCAN:
-                    ApiFunctions.Companion.setSession(apiToken.access_token, "id_scan");
+                    ApiFunctions.setSession(apiToken.access_token, "id_scan");
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_GET_SESSION_SCAN_RESULT:
-                    ApiFunctions.Companion.getSessionScanResult(apiToken.access_token);
+                    ApiFunctions.getSessionScanResult(apiToken.access_token);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_STREAM_SETTINGS:
-                    ApiFunctions.Companion.setStreamFaceBoxDisplay(apiToken.access_token,faceBoxDisplayValue);
+                    ApiFunctions.setStreamFaceBoxDisplay(apiToken.access_token,faceBoxDisplayValue);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_SET_ENROLL_IMAGE:
-                    ApiFunctions.Companion.enrollImage(apiToken.access_token,enrollImage);
+                    ApiFunctions.setEnrollImage(apiToken.access_token,enrollImage);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_PURGE_FACES:
@@ -310,17 +322,17 @@ public class APIThread extends Thread implements IAPIAccount {
                     String [] del = new String[1];
                     del[0] = "all";
                     FaceDelete faceDelete = new FaceDelete(del);
-                    ApiFunctions.Companion.deleteFaces(apiToken.access_token,faceDelete);
+                    ApiFunctions.setDeleteFaces(apiToken.access_token,faceDelete);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_FACES_TO_UPDATE:
                     icuLastState = icuState;
-                    ApiFunctions.Companion.updateFaceData(apiToken.access_token,this.updateFaceData);
+                    ApiFunctions.setFaceData(apiToken.access_token,this.updateFaceData);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
                 case SM_FACES_TO_DELETE:
                     icuLastState = icuState;
-                    ApiFunctions.Companion.deleteFaces(apiToken.access_token,this.deleteFaceData);
+                    ApiFunctions.setDeleteFaces(apiToken.access_token,this.deleteFaceData);
                     icuState = ICU_SM.SM_RESPONSE;
                     break;
             }
@@ -371,6 +383,7 @@ public class APIThread extends Thread implements IAPIAccount {
 
 
 
+
     @Override
     public void onToken(Token token) {
 
@@ -380,14 +393,14 @@ public class APIThread extends Thread implements IAPIAccount {
 
     @Override
     public void onDeviceDetail(  DeviceDetail device) {
-        this.icuDevice.setDeviceDetail(device);
+        this.icuDevice.deviceDetail = device;
         icuState = ICU_SM.SM_GET_SETTINGS;
     }
 
     @Override
     public void onStatus(  StatusResponse status) {
 
-        if(!readySent && status.getDeviceState().equalsIgnoreCase("ready")){
+        if(!readySent && status.DeviceState.equalsIgnoreCase("ready")){
             for(LocalAPIListener l: icuThreadListeners.values()){
                 l.ICUReady();
             }
@@ -396,25 +409,25 @@ public class APIThread extends Thread implements IAPIAccount {
 
         if(validSettings){
             for(LocalAPIListener l: icuThreadListeners.values()){
-                l.ICULastFaceUpdate(status.getLastFaceUpdate());
+                l.ICULastFaceUpdate(status.LastFaceUpdate);
             }
         }
 
-        for(int i = 0; i < status.getDetections().size(); i++) {
-            Detection d = status.getDetections().get(i);
+        for(int i = 0; i < status.Detections.size(); i++) {
+            Detection d = status.Detections.get(i);
             FaceSessionData faceSessionData = new FaceSessionData();
-            faceSessionData.age = d.getAge();
-            faceSessionData.image = d.getImage();
-            faceSessionData.uid = d.getUid();
-            faceSessionData.gender = d.getGender();
+            faceSessionData.age = d.Age;
+            faceSessionData.image = d.Image;
+            faceSessionData.uid = d.Uid;
+            faceSessionData.gender = d.Gender;
 
-            if (!d.getUid().equals("none")) {
+            if (!d.Uid.equals("none")) {
                 faceSessionData.record_image = "db image found";
                 for(LocalAPIListener l: icuThreadListeners.values()){
                     l.ICUUid(faceSessionData);
                 }
             } else {
-                faceSessionData.feature = d.getFeature();
+                faceSessionData.feature = d.Feature;
                 for(LocalAPIListener l: icuThreadListeners.values()){
                     l.ICUAge(faceSessionData);
                 }
@@ -422,7 +435,7 @@ public class APIThread extends Thread implements IAPIAccount {
         }
         if(readySent) {
             for (LocalAPIListener l : icuThreadListeners.values()) {
-                l.ICULiveFrame(status.getFaceInFrame());
+                l.ICULiveFrame(status.FaceInFrame);
             }
         }
 
@@ -434,11 +447,11 @@ public class APIThread extends Thread implements IAPIAccount {
 
     @Override
     public void onGetSettings(  DeviceSettings settings) {
-        this.icuDevice.setDeviceSettings(settings);
+        this.icuDevice.deviceSettings = settings;
 
         // update global settings object with response
-        if(settings.getCameras() != null) {
-            this.requestCamera = settings.getCameras().get(0);
+        if(settings.Cameras != null) {
+            this.requestCamera = settings.Cameras.get(0);
         }else{
             this.requestCamera = null;
         }
@@ -488,12 +501,12 @@ public class APIThread extends Thread implements IAPIAccount {
     @Override
     public void onGetSession(  SessionResponse session) {
 
-        if(session.getDevice_status().equals("ready")){
-            if(session.getSession_mode().equals("idle") && session.getFaceInFrame() && currentMode != ICURunMode.AGE_ID_IDLE){
+        if(session.Device_status.equals("ready")){
+            if(session.Session_mode.equals("idle") && session.FaceInFrame && currentMode != ICURunMode.AGE_ID_IDLE){
                 icuState = ICU_SM.SM_SET_SESSION_FACE_CAPTURE;
-            }else if(session.getSession_mode().equals("face_capture") && session.getSession_age_result()){
+            }else if(session.Session_mode.equals("face_capture") && session.Session_age_result){
                 icuState = ICU_SM.SM_GET_SESSION_AGE_RESULT;
-            }else if(session.getSession_mode().equals("id_scan") && session.getSession_scan_result()){
+            }else if(session.Session_mode.equals("id_scan") && session.Session_scan_result){
                 icuState = ICU_SM.SM_GET_SESSION_SCAN_RESULT;
             }else{
                  icuState = ICU_SM.SM_GET_SESSION_STATUS;
@@ -581,6 +594,8 @@ public class APIThread extends Thread implements IAPIAccount {
     public void onFacesUpdated() {
         icuState = ICU_SM.SM_STATUS;
     }
+
+
 
 
 }

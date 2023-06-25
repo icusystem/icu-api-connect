@@ -8,7 +8,7 @@ import io.github.icusystem.icu_connect.api_icu.UpdateFaceData;
 
 
 /**
- * <h1>Connect</h1>
+ * Connect
  * The connection class to the ICU API
  * Instantiate this class with connection parameters and
  * Listen for ICU events.
@@ -58,6 +58,21 @@ public class Connect{
         icuThread.start();
 
     }
+
+    /**
+     * Start the ICU API host system - overridden
+     * @param tag  - a string to identify the instantiating class
+     * @param localAPIListener - API event listener interface
+     * @param showDebug - print debug log to console    *
+     */
+    public void Start(String tag, LocalAPIListener localAPIListener, Boolean showDebug)
+    {
+        icuThread = new APIThread(this.cameraSettings,this.username,this.password,showDebug);
+        icuThread.setLocalAPIListener(tag,localAPIListener);
+        icuThread.start();
+
+    }
+
 
     /**
      * SetListener - add a listener to
