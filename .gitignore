@@ -43,3 +43,4 @@ target
 bin
 gen
 .github/
+trace.log
