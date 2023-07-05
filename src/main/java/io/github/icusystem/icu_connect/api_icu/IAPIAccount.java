@@ -1,5 +1,7 @@
 package io.github.icusystem.icu_connect.api_icu;
 
+import java.util.ArrayList;
+
 public interface IAPIAccount {
 
     void onToken(Token token);
@@ -12,13 +14,13 @@ public interface IAPIAccount {
     void onGetSession(SessionResponse session);
     void onGetAgeResult(SessionAgeResult session);
     void onGetScanResult(SessionScanResult session);
-    void onFaceIDSuccess(EnrollResponse enrollResponse);
+    void onFaceIDSuccess(ArrayList<EnrollItem> enrollResponse);
     void onFaceIDFail(EnrollError enrollError);
     void onDeleteFaces();
     void onFacesUpdated();
     void onRequestFail(ICUError icuError,String  message);
 
-
+    void onStatusFail(ICUError icuError,String  message);
 
 
 }

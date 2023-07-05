@@ -2,10 +2,10 @@ package io.github.icusystem.icu_connect.api_icu;
 
 public class StreamSetFaceBox {
 
-    public int displayBox;
+    public int DisplayBox;
 
     public StreamSetFaceBox(int displayBox) {
-        this.displayBox = displayBox;
+        this.DisplayBox = displayBox;
     }
 
 

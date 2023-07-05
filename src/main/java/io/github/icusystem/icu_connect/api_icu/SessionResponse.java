@@ -9,5 +9,3 @@ public class SessionResponse {
     public String Device_status;
 
 }
-
-

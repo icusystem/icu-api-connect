@@ -9,7 +9,7 @@ public class CameraRequest {
     public int Camera_distance = 0;
     public boolean Pose_filter = false;
     public int Rotation = 0;
-    public boolean Face_rec_enable = false;
+    public boolean Face_rec_en = false;
     public String View_mode = "";
 
 }

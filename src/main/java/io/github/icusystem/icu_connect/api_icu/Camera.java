@@ -10,7 +10,7 @@ public class Camera {
     public String Resolution = null;
     public boolean Active = false;
     public int Camera_distance = 0;
-    public boolean PoseFilter = false;
+    public boolean Pose_filter = false;
     public boolean Face_rec_en = false;
     public String View_mode = null;
     public boolean Id_verify_capable = false;

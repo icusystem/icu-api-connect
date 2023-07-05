@@ -5,6 +5,7 @@ package io.github.icusystem.icu_connect;
 import io.github.icusystem.icu_connect.api_icu.*;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface LocalAPIListener {
@@ -23,7 +24,7 @@ public interface LocalAPIListener {
 
     default void ICULiveFrame(List<FaceDetect> frameCounts){}
 
-    default void ICUFaceIDSuccess(EnrollResponse enrollResponse){}
+    default void ICUFaceIDSuccess(ArrayList<EnrollItem> enrollResponse){}
     default void ICUFaceIDError(EnrollError enrollError){}
 
     default void ICUFacesDeleted(){}

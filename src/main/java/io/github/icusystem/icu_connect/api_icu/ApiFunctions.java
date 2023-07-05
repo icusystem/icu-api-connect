@@ -12,8 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -122,18 +124,23 @@ public class ApiFunctions {
             getRetrofitInstance();
         }
 
-        debugShowRequest("setEnrollImage", null);
 
         EnrollRequest enroll = new EnrollRequest(imageB64);
-        Call<EnrollResponse> call = apiService.getImageUID("Bearer " + token, enroll);
+        debugShowRequest("setEnrollImage", enroll);
+        Call<ArrayList<EnrollItem>> call = apiService.getImageUID("Bearer " + token, enroll);
         call.enqueue(new Callback<>() {
             @Override
-            public void onResponse(@NotNull Call<EnrollResponse> call, @NotNull Response<EnrollResponse> response) {
+            public void onResponse(@NotNull Call<ArrayList<EnrollItem>> call, @NotNull Response<ArrayList<EnrollItem>> response) {
                 if (response.isSuccessful()) {
-                    EnrollResponse apiResponse = response.body();
+                    ArrayList<EnrollItem> apiResponse = response.body();
                     debugShowResponse("setEnrollImage", apiResponse);
                     if (apiResponse != null) {
-                        iApiAccountListener.onFaceIDSuccess(apiResponse);
+                        if(apiResponse.get(0).status.equals("ok")) {
+                            iApiAccountListener.onFaceIDSuccess(apiResponse);
+                        }else{
+                            EnrollError enrollError = new EnrollError(apiResponse.get(0).status);
+                            iApiAccountListener.onFaceIDFail(enrollError);
+                        }
                     }
                 } else {
                     debugShowResponse("setEnrollImage", new ResponseError(response.code(), "HTTP response fail"));
@@ -142,7 +149,7 @@ public class ApiFunctions {
             }
 
             @Override
-            public void onFailure(@NotNull Call<EnrollResponse> call, @NotNull Throwable throwable) {
+            public void onFailure(@NotNull Call<ArrayList<EnrollItem>> call, @NotNull Throwable throwable) {
                 debugShowResponse("setEnrollImage", new ResponseError(0, throwable.getMessage()));
                 iApiAccountListener.onRequestFail(ICUError.NO_CONNECTION, throwable.getMessage());
             }
@@ -513,11 +520,12 @@ public class ApiFunctions {
             data = gson.toJson(request);
         }
 
-        LocalDateTime currentTime = LocalDateTime.now();
+       // LocalDateTime currentTime = LocalDateTime.now();
 
         // Format the current time using a DateTimeFormatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-        System.out.println("API request: " + currentTime.format(formatter));
+       // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        System.out.println("API request: " + simpleDateFormat.format(new Date())); //currentTime.format(formatter));
         System.out.println(methodName);
         System.out.println(data);
 
@@ -536,10 +544,11 @@ public class ApiFunctions {
             data = gson.toJson(response);
         }
 
-        LocalDateTime currentTime = LocalDateTime.now();
+    //    LocalDateTime currentTime = LocalDateTime.now();
         // Format the current time using a DateTimeFormatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-        System.out.println("API response: " + currentTime.format(formatter));
+  //      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        System.out.println("API response: " + simpleDateFormat.format(new Date())); //currentTime.format(formatter));
         System.out.println(methodName);
         System.out.println(data);
 

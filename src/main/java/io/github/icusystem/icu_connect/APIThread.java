@@ -4,6 +4,7 @@ package io.github.icusystem.icu_connect;
 import io.github.icusystem.icu_connect.api_icu.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -53,7 +54,6 @@ public class APIThread extends Thread implements IAPIAccount {
 
     private Integer lastFaceTimestamp = 0;
 
-    private EnrollResponse enrollResponse = null;
     private UpdateFaceData updateFaceData = null;
     public boolean newFaceRecMode = false;
     public boolean newAgeOnlyMode;
@@ -546,7 +546,7 @@ public class APIThread extends Thread implements IAPIAccount {
 
 
     @Override
-    public void onFaceIDSuccess(  EnrollResponse enrollResponse) {
+    public void onFaceIDSuccess( ArrayList<EnrollItem> enrollResponse) {
 
         icuState = ICU_SM.SM_STATUS;
         for(LocalAPIListener l: icuThreadListeners.values()){
@@ -571,6 +571,11 @@ public class APIThread extends Thread implements IAPIAccount {
         for(LocalAPIListener l: icuThreadListeners.values()){
             l.ICUDisconnected(message);
         }
+    }
+
+    @Override
+    public void onStatusFail(ICUError icuError, String message) {
+        icuState = ICU_SM.SM_STATUS;
     }
 
 

@@ -8,6 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface ApiService {
@@ -32,8 +33,8 @@ public interface ApiService {
      * @param image the EnrollRequest object with image data
      * @return EnrollResponse object
      */
-    @POST("/api/v1_0/imagedelete")
-    Call<EnrollResponse> getImageUID(@Header("Authorization") String token, @Body EnrollRequest image);
+    @POST("/api/v1_0/image")
+    Call<ArrayList<EnrollItem>> getImageUID(@Header("Authorization") String token, @Body EnrollRequest image);
 
     @POST("/api/v1_0/imageupdate")
     Call<Void> setImageUpdate(@Header("Authorization") String token, @Body UpdateFaceData image);
