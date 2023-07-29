@@ -69,6 +69,9 @@ public class APIThread extends Thread implements IAPIAccount {
     public String enrollImage = "";
 
     private boolean readySent = false;
+    private boolean initSent = false;
+
+    private boolean connectedSent = false;
     private ICU_SM logICUState = ICU_SM.SM_SET_SESSION_IDLE;
 
     private CameraSettings cameraSettings;
@@ -211,6 +214,8 @@ public class APIThread extends Thread implements IAPIAccount {
                 case SM_CONNECT:
                     readySent = false;
                     validSettings = false;
+                    initSent = false;
+                    connectedSent = false;
                     ApiFunctions.getToken(this.apiUserName,this.apiPassword);
                     icuSavedState =  ICU_SM.SM_GET_DEVICE;
                     icuState = ICU_SM.SM_RESPONSE;
@@ -400,11 +405,20 @@ public class APIThread extends Thread implements IAPIAccount {
     @Override
     public void onStatus(  StatusResponse status) {
 
+        if(!initSent && status.DeviceState.equalsIgnoreCase("initialising")){
+            for(LocalAPIListener l: icuThreadListeners.values()){
+                l.ICUInitialising();
+            }
+            initSent = true;
+            readySent = false;
+        }
+
         if(!readySent && status.DeviceState.equalsIgnoreCase("ready")){
             for(LocalAPIListener l: icuThreadListeners.values()){
                 l.ICUReady();
             }
             readySent = true;
+            initSent  =false;
         }
 
         if(validSettings){
@@ -456,10 +470,11 @@ public class APIThread extends Thread implements IAPIAccount {
             this.requestCamera = null;
         }
 
-        if(!readySent){
+        if(!connectedSent){
             for(LocalAPIListener l: icuThreadListeners.values()){
                 l.ICUConnected(this.icuDevice);
             }
+            connectedSent = true;
         }else{
             for(LocalAPIListener l: icuThreadListeners.values()){
                 l.ICUDeviceUpdate(this.icuDevice);

@@ -14,6 +14,7 @@ public interface LocalAPIListener {
     default void ICUConnected(ICUDevice device){}
     default void ICUDeviceUpdate(ICUDevice device){}
     default void ICUDisconnected(String message){}
+    default void ICUInitialising(){}
     default void ICUReady(){}
     default void ICULastFaceUpdate(Integer lastFaceIndex){}
     default void ICUAge(FaceSessionData data){}
