@@ -120,27 +120,5 @@ A request to run an ID Card scan verification session has given a scan result
 ### Parameters
 A SessionScanResult object.
 
----
-# Event Parameters
-## ICUDevice {.tabset}
-
-### Java
-````
-public class ICUDevice {
-
-    public DeviceDetail deviceDetail;
-    public DeviceSettings deviceSettings;
-
-}
-````
-### Kotlin
-````
-class ICUDevice {
-    var deviceDetail: DeviceDetail? = null
-    var deviceSettings: DeviceSettings? = null
-}
-
-````
-
 
 
