@@ -25,14 +25,17 @@ public class ApiFunctions {
     private static ApiService apiService;
     private static Retrofit retrofit;
     private static Boolean showDebug = false;
+    private static String baseURL = "https://192.168.137.8:44345";
     private static final String TAG = "ApiFunctions";
     public static void setOnAPIAccountListener(IAPIAccount listener) {
         iApiAccountListener = listener;
     }
 
+
     private static String getBaseURL() {
-        return "https://192.168.137.8:44345";
+        return baseURL ;
     }
+    public static void setBaseURL(String url){baseURL = url;}
 
     private static void getRetrofitInstance() {
         // Create Retrofit

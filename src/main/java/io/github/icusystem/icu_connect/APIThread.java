@@ -88,23 +88,27 @@ public class APIThread extends Thread implements IAPIAccount {
     private String apiUserName;
     private String apiPassword;
 
+    private String baseURL;
 
-    public APIThread(CameraSettings cameraSettings, String username, String password) {
+
+    public APIThread(ICUConnection connection) {
 
         this.icuThreadListeners = new HashMap<>();
         this.icuDevice = new ICUDevice();
-        this.cameraSettings = cameraSettings;
-        this.apiUserName = username;
-        this.apiPassword = password;
+        this.cameraSettings = connection.cameraSettings;
+        this.apiUserName = connection.username;
+        this.apiPassword = connection.password;
+        ApiFunctions.setBaseURL(connection.baseUrl);
     }
 
-    public APIThread(CameraSettings cameraSettings, String username, String password, Boolean showDebug) {
+    public APIThread(ICUConnection connection, Boolean showDebug) {
 
         this.icuThreadListeners = new HashMap<>();
         this.icuDevice = new ICUDevice();
-        this.cameraSettings = cameraSettings;
-        this.apiUserName = username;
-        this.apiPassword = password;
+        this.cameraSettings = connection.cameraSettings;
+        this.apiUserName = connection.username;
+        this.apiPassword = connection.password;
+        ApiFunctions.setBaseURL(connection.baseUrl);
         ApiFunctions.setShowDebug(showDebug);
     }
 

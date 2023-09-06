@@ -6,10 +6,15 @@ import java.util.List;
 
 public class SettingsRequest {
 
-    public String DeviceName = "";
+    public String DeviceName;
+    public Boolean ReactiveLED;
     public List<CameraRequest> Cameras = new ArrayList<>();
 
     public SettingsRequest() {
+
+        DeviceName = "";
+        ReactiveLED = true;
+
         CameraRequest cam = new CameraRequest();
         if (Cameras != null) {
             Cameras.add(cam);

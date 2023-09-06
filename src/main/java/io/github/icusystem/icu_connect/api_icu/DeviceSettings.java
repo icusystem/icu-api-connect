@@ -6,6 +6,7 @@ import java.util.List;
 public class DeviceSettings {
 
     public String DeviceName;
+    public Boolean ReactiveLED;
     public List<Camera> Cameras;
 
 

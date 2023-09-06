@@ -1,12 +1,17 @@
 package io.github.icusystem.icu_connect.api_icu;
 public class ModeCamera {
 
-    public int Id_Index = 0;
-    public boolean Face_rec_en = false;
-    public int Spoof_level = 0;
-    public boolean Pose_filter = false;
-    public int Camera_distance = 0;
-    public int Rotation = 0;
-    public String View_mode = null;
+    public int Id_Index;
+    public boolean Face_rec_en;
+    public int Spoof_level;
+    public  Boolean Spoof_terminate;
+    public boolean Pose_filter;
+    public int Camera_distance;
+    public int Rotation;
+    public String View_mode;
+
+    public ModeCamera(){
+        View_mode = "Biggest";
+    }
 
 }

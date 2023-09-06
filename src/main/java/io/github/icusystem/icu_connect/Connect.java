@@ -1,10 +1,7 @@
 package io.github.icusystem.icu_connect;
 
 
-import io.github.icusystem.icu_connect.api_icu.CameraSettings;
-import io.github.icusystem.icu_connect.api_icu.FaceDelete;
-import io.github.icusystem.icu_connect.api_icu.ICURunMode;
-import io.github.icusystem.icu_connect.api_icu.UpdateFaceData;
+import io.github.icusystem.icu_connect.api_icu.*;
 
 
 /**
@@ -22,27 +19,38 @@ public class Connect{
     private String username;
     private String password;
 
+    private String baseIpAddress;
+    private boolean ssl;
+
     /**
      * Connect - Constructor
+     * @param ipaddress - the base IP Address of the device
+     * @param ssl - http or https (false, true)
      * @param apiUsername - the ICU Device api username
      * @param apiPassword - the ICU Device api password
      */
-    public Connect(String apiUsername, String apiPassword){
+    public Connect(String ipaddress, boolean ssl, String apiUsername, String apiPassword){
         cameraSettings = new CameraSettings();
         this.username = apiUsername;
         this.password = apiPassword;
+        this.ssl = ssl;
+        this.baseIpAddress = ipaddress;
     }
 
     /**
      * Connect - Overidden constructor
      * @param cameraSettings - a CameraSettings object containing optional start-up settings
+     * @param ipaddress - the base IP Address of the device
+     * @param ssl - http or https (false, true)     *
      * @param apiUsername - the ICU Device api username
      * @param apiPassword - the ICU Device api password
      */
-    public Connect(CameraSettings cameraSettings,String apiUsername, String apiPassword){
+    public Connect(CameraSettings cameraSettings, String ipaddress, boolean ssl, String apiUsername, String apiPassword){
         this.cameraSettings = cameraSettings;
         this.username = apiUsername;
         this.password = apiPassword;
+        this.ssl = ssl;
+        this.baseIpAddress = ipaddress;
     }
 
 
@@ -53,7 +61,17 @@ public class Connect{
      */
     public void Start(String tag, LocalAPIListener localAPIListener)
     {
-        icuThread = new APIThread(this.cameraSettings,this.username,this.password);
+        ICUConnection connection = new ICUConnection();
+        connection.cameraSettings = this.cameraSettings;
+        connection.username = this.username;
+        connection.password = this.password;
+        if(this.ssl){
+            connection.baseUrl = "https://" + this.baseIpAddress + ":44345";
+        }else{
+            connection.baseUrl = "http://" + this.baseIpAddress + ":8060";
+        }
+
+        icuThread = new APIThread(connection);
         icuThread.setLocalAPIListener(tag,localAPIListener);
         icuThread.start();
 
@@ -67,7 +85,16 @@ public class Connect{
      */
     public void Start(String tag, LocalAPIListener localAPIListener, Boolean showDebug)
     {
-        icuThread = new APIThread(this.cameraSettings,this.username,this.password,showDebug);
+        ICUConnection connection = new ICUConnection();
+        connection.cameraSettings = this.cameraSettings;
+        connection.username = this.username;
+        connection.password = this.password;
+        if(this.ssl){
+            connection.baseUrl = "https://" + this.baseIpAddress + ":44345";
+        }else{
+            connection.baseUrl = "http://" + this.baseIpAddress + ":8060";
+        }
+        icuThread = new APIThread(connection,showDebug);
         icuThread.setLocalAPIListener(tag,localAPIListener);
         icuThread.start();
 
