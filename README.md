@@ -155,7 +155,7 @@ public class Main {
         cameraSettings.Camera_distance = 3;
         cameraSettings.Rotation = 0;
         /* Create a Connect object, passing settings and ICU Device API username and password */
-        Connect connect = new Connect(cameraSettings,"apiuser","apipassword");
+        Connect connect = new Connect(cameraSettings,"192.168.137.8",false,"apiuser","apipassword");
         /* Create an event listener object */
         ApiEvents apiEvents = new ApiEvents();
         /* Start the Connect, passing the event listener object */
